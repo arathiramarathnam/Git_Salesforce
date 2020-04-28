@@ -24,20 +24,20 @@ public class CreateAccountReport extends CreateNewView{
 		WebElement fromdate=driver.findElement(By.id("ext-comp-1042"));
 		fromdate.clear();
 		fromdate.sendKeys(from);
-//		driver.findElement(By.id("ext-gen152")).click();
-//		Thread.sleep(2000);
-//		driver.findElement(By.xpath("//td[@class='x-date-active x-date-today x-date-selected']//span[contains(text(),'26')]")).click();
+/*		driver.findElement(By.id("ext-gen152")).click();
 		Thread.sleep(2000);
-//		driver.findElement(By.id("ext-comp-1057"));
+		driver.findElement(By.xpath("//td[@class='x-date-active x-date-today x-date-selected']//span[contains(text(),'26')]")).click();
+		Thread.sleep(2000);*/
+		driver.findElement(By.id("ext-comp-1057"));
 		WebElement todate=driver.findElement(By.id("ext-comp-1045"));
 		todate.clear();
 		todate.sendKeys(to);
-		//driver.findElement(By.id("ext-gen154")).click();
-	//	Thread.sleep(2000);
-	//	WebElement right=driver.findElement(By.xpath("//td[@class='x-date-right']"));
-	//	right.getAttribute("title");
-	//	driver.findElement(By.id("ext-gen288")).click();
-	//	driver.findElement(By.xpath("//table[@id='ext-gen271']//td[@class='x-date-active x-date-today x-date-selected']//a[@class='x-date-date']")).click();
+/*		driver.findElement(By.id("ext-gen154")).click();
+		Thread.sleep(2000);
+		WebElement right=driver.findElement(By.xpath("//td[@class='x-date-right']"));
+		right.getAttribute("title");
+		driver.findElement(By.id("ext-gen288")).click();
+		driver.findElement(By.xpath("//table[@id='ext-gen271']//td[@class='x-date-active x-date-today x-date-selected']//a[@class='x-date-date']")).click();*/
 		Thread.sleep(2000);
 		WebElement datefield=driver.findElement(By.xpath("//input[@id='ext-gen20']"));
 		waitForPageElementToVisible(datefield);
@@ -62,7 +62,7 @@ public class CreateAccountReport extends CreateNewView{
 		System.out.println(li_row3.get(count).getText()+",");
 		}
 		
-		Thread.sleep(4000);
+	Thread.sleep(4000);
 	driver.findElement(By.id("//table[@id='saveReportBtn']")).click();
 	Thread.sleep(4000);
 	}

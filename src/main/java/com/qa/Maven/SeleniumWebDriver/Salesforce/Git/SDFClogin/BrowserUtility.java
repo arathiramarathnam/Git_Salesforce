@@ -47,6 +47,10 @@ public class BrowserUtility {
 		public static String newOpportunityACCTName;
 		public static String leadName;
 		public static String Company;
+		public static String invalidViewUniqueName;
+		public static String newContactLastName;
+		public static String newContactACCTName;
+		public static String editProfileLastName;
 		
 		public static void launchBrowser(String sBrowser){
 			
@@ -159,9 +163,10 @@ public class BrowserUtility {
 			newOpportunityACCTName=System.getProperty("opportunityaccountname");
 			leadName=System.getProperty("leadname");
 			Company=System.getProperty("company");
-			
-						
-			
+			invalidViewUniqueName=System.getProperty("invalidviewuniquename");
+			newContactLastName=System.getProperty("contactlastName");
+			newContactACCTName=System.getProperty("contactaccountname");
+			editProfileLastName=System.getProperty("editlastName");
 			}catch(Exception a) {
 				System.out.println(a);
 			}

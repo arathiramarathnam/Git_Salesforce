@@ -3,6 +3,7 @@ package com.qa.Maven.SeleniumWebDriver.Salesforce.Git.SDFClogin;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LogoutSFDC extends BrowserUtility{
@@ -19,7 +20,12 @@ public class LogoutSFDC extends BrowserUtility{
 		Thread.sleep(1000);
 		WebElement logout=driver.findElement(By.xpath("//a[contains(text(),'Logout')]"));
 		logout.click();
-		
+		Thread.sleep(3000);
+		System.out.println("Successfully logged out of salesforce page");
+		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.id("password"))));
+		System.out.println("Salesforce Login page is displayed");
+		driver.findElement(By.xpath("//a[@id='clear_link']")).click();
+		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.id("username")))).isEnabled();
 	}
 	
 	

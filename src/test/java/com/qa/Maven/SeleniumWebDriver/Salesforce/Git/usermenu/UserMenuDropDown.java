@@ -16,8 +16,6 @@ public class UserMenuDropDown extends BrowserUtility{
 		System.out.println(driver.findElement(By.id("userNav")).getAttribute("title"));
 		System.out.println(driver.findElement(By.id("userNavLabel")).getText());
 		System.out.println("User Menu drop down is available");
-		
-		
 		Thread.sleep(2000);
 		Actions action=new Actions(driver);
 		WebElement usermenubutton=driver.findElement(By.id("userNavButton"));

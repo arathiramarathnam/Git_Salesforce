@@ -1,4 +1,4 @@
-package com.qa.Maven.SeleniumWebDriver.Salesforce.Git.CreateAccount;
+package com.qa.Maven.SeleniumWebDriver.Salesforce.Git.contacts;
 
 import java.util.List;
 
@@ -7,9 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class CreateNewView extends CreateAccounts{
+public class CreateNewViewForContacts extends createNewContact{
 	
-	public static void verifyAccountsPage() throws InterruptedException {
+	public static void verifyContactsPage() throws InterruptedException {
 		WebDriverWait wait=new WebDriverWait(driver,30);
 		Thread.sleep(3000);
 		wait.until(ExpectedConditions.visibilityOfAllElements(driver.findElements(By.xpath("//ul[@id='tabBar']"))));
@@ -19,11 +19,21 @@ public class CreateNewView extends CreateAccounts{
 		}
 		System.out.println("Home page for "+ userNameNavLabel +"is displayed");
 		Thread.sleep(2000);
-		waitForPageElementToVisible(driver.findElement(By.xpath("//li[@id='Account_Tab']//a[contains(text(),'Accounts')]")));
-		driver.findElement(By.xpath("//li[@id='Account_Tab']//a[contains(text(),'Accounts')]")).click();
+		waitForPageElementToVisible(driver.findElement(By.xpath("//li[@id='Contact_Tab']//a[contains(text(),'Contacts')]")));
+		driver.findElement(By.xpath("//a[contains(text(),'Contacts')]")).click();
 		Thread.sleep(3000);
-		System.out.println("Accounts page is displayed for username");
+		System.out.println("Contacts page is displayed for username");
 		Thread.sleep(2000);
+		
+		Boolean contactsdropdown=driver.findElement(By.xpath("//select[@id='fcf']")).isDisplayed();
+		if (contactsdropdown=true) {
+		System.out.println("Contacts dropdown is available");}
+		
+		List<WebElement> li_Contacts=driver.findElements(By.xpath("//select[@id='fcf']//option"));
+		for(int count=0;count<li_Contacts.size();count++) { // row1size =4, 0,1,2,3
+		System.out.println(li_Contacts.get(count).getText()+",");
+		}
+		System.out.println("All Contacts List available in dropdown");
 		
 	}
 	
@@ -47,19 +57,25 @@ public class CreateNewView extends CreateAccounts{
 		save.click();
 		Thread.sleep(3000);
 		
-		System.out.println("New view with viewname saved" +devViewName+ "is displayed on Accounts page");
+		System.out.println("New view with viewname saved" +devViewName+ "is displayed on contacts page");
 			
 	}
 	
+
+	
+
 	public static void main(String[] args) throws InterruptedException {
+
 		getPropertyfromFile();
 		launchBrowser("ch");
 		loginToBrowser();
-		verifyAccountsPage();
-		createNewView();
 		Thread.sleep(3000);
-//		quitBrowser();
-		
+		verifyContactsPage(); 
+		Thread.sleep(3000);
+		createNewView();
+		Thread.sleep(4000);
+		quitBrowser();
+	
 
 	}
 

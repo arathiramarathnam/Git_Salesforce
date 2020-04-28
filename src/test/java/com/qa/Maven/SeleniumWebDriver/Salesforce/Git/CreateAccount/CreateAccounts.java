@@ -133,7 +133,7 @@ public class CreateAccounts extends BrowserUtility{
 		getPropertyfromFile();
 		launchBrowser("ch");
 		loginToBrowser();
-//		addAccountToHomePage();
+		addAccountToHomePage();
 		createNewAccount();
 		Thread.sleep(3000);
 		quitBrowser();
