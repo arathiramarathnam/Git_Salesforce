@@ -45,7 +45,7 @@ public class InvalidViewNameInContacts extends createNewContact{
 		}
 
 	}	
-		static void verifyInvaidViewAndViewUniqueName() throws InterruptedException {
+		static void verifyInvalidViewAndViewUniqueName() throws InterruptedException {
 			
 			WebDriverWait wait=new WebDriverWait(driver,30);
 			Thread.sleep(3000);
@@ -80,8 +80,10 @@ public class InvalidViewNameInContacts extends createNewContact{
 			Thread.sleep(3000);
 			
 			driver.findElement(By.xpath("//a[contains(text(),'Contacts')]")).click();
-			Boolean myContactsview=driver.findElement(By.xpath("//select[@id='fcf']//option[contains(text(),'ABCD')]")).isDisplayed();
-			if (myContactsview=false) {
+			String myContactsview=driver.findElement(By.xpath("//select[@id='fcf']//option")).getText();
+			if (myContactsview.contains("ABCD")) {
+				System.out.println("contact view name is displayed in View list--->"+invalidViewName);
+			}else {
 				System.out.println("contact view name is not displayed in View list--->"+invalidViewName);
 			}
 
@@ -94,8 +96,8 @@ public class InvalidViewNameInContacts extends createNewContact{
 		Thread.sleep(2000);
 		verifyCreateNewView();
 		Thread.sleep(3000);
-		verifyInvaidViewAndViewUniqueName();
-		Thread.sleep(3000);
+		verifyInvalidViewAndViewUniqueName();
+		Thread.sleep(2000);
 		quitBrowser();
 
 	}
