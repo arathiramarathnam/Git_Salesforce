@@ -23,6 +23,9 @@ public class LogoutSFDC extends BrowserUtility{
 		Thread.sleep(3000);
 		System.out.println("Successfully logged out of salesforce page");
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.id("password"))));
+		if (driver.findElement(By.id("password")).isDisplayed()) {
+			System.out.println("Successfully logged out of salesforce page and Salesforce Login page is displayed");
+		}
 		System.out.println("Salesforce Login page is displayed");
 		driver.findElement(By.xpath("//a[@id='clear_link']")).click();
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.id("username")))).isEnabled();
@@ -39,6 +42,7 @@ public class LogoutSFDC extends BrowserUtility{
 		logoutToBrowser();
 		Thread.sleep(3000);
 		quitBrowser();
+		
 
 	}
 

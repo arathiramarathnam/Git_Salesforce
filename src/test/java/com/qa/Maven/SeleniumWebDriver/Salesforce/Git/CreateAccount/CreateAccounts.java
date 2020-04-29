@@ -74,14 +74,19 @@ public class CreateAccounts extends BrowserUtility{
 		driver.findElement(By.xpath("//td[@class='pbTitle']//h3[contains(text(),'Recent Accounts')]"));
 		String accounts=driver.findElement(By.xpath("//td[@class='pbTitle']//h3[contains(text(),'Recent Accounts')]")).getText();
 		System.out.println(accounts);
-		System.out.println("Accounts page is displayed");
-			
-		Thread.sleep(1000);
+		if (accounts.equalsIgnoreCase("Recent Accounts")) {
+			System.out.println("Accounts page is displayed");
+		}
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("//td[@class='pbButton']//input[@name='new']"));
 		driver.findElement(By.xpath("//td[@class='pbButton']//input[@name='new']")).click();
 		Thread.sleep(4000);
 		String Newaccount=driver.findElement(By.xpath("//h2[contains(@class,'pageDescription')]")).getText();
 		System.out.println("NewAccount Page is displayed----> "+Newaccount);
+		
+		if (Newaccount.equalsIgnoreCase("New Account")) {
+			System.out.println("NewAccount Page is displayed----> "+Newaccount);
+		}
 		
 		driver.findElement(By.xpath("//div[contains(@class,'pbHeader')]//td[contains(@class,'pbTitle')]//h2[contains(@class,'mainTitle')]"));
 		String accountedit=driver.findElement(By.xpath("//div[contains(@class,'pbHeader')]//td[contains(@class,'pbTitle')]//h2[contains(@class,'mainTitle')]")).getText();

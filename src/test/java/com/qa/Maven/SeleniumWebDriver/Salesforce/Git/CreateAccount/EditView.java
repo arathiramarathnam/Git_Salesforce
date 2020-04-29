@@ -34,18 +34,22 @@ public class EditView extends CreateNewView{
 		WebElement newviewname=driver.findElement(By.xpath("//select[@id='fcf']"));
 		Boolean viewname=driver.findElement(By.xpath("//select[@id='fcf']//option[contains(text(),'Arathi Ram')]")).isDisplayed();
 		if (viewname=true) {
-			System.out.println("New View with viewname is displayed in Accounts page");
+			System.out.println("New View with viewname is displayed in Accounts page"+devViewName);
 		}
 		System.out.println("New View with viewname is displayed in Accounts page");
 		Select dropdown=new Select(newviewname);
 		dropdown.selectByValue("00B5w00000D9DNR");
-		System.out.println("View name is selected for edit");
+		System.out.println("View name is selected for edit"+devViewName);
 		Thread.sleep(5000);
 		
 		driver.findElement(By.xpath("//a[contains(text(),'Edit')]")).click();
 		Thread.sleep(4000);
 		String Editview=driver.findElement(By.xpath("//h2[contains(@class,'pageDescription')]")).getText();
 		System.out.println("EditView Page is displayed----> "+Editview);
+		
+		if (Editview.equalsIgnoreCase("Edit View")) {
+			System.out.println("EditView Page is displayed----> "+Editview);
+		}
 		
 		Thread.sleep(4000);
 		System.out.println("Step 1. Enter View Name");
@@ -107,7 +111,7 @@ public class EditView extends CreateNewView{
 		WebElement editviewname=driver.findElement(By.xpath("//select[@id='fcf']"));
 		Boolean viewname=driver.findElement(By.xpath("//select[@id='fcf']//option[contains(text(),'Venugopalan')]")).isDisplayed();
 		if (viewname=true) {
-			System.out.println("Editedviewname is displayed in Accounts page");
+			System.out.println("Editedviewname is displayed in Accounts page"+devViewNameEdit);
 		}
 		
 	}

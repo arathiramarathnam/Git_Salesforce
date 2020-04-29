@@ -22,6 +22,9 @@ static void leads() throws InterruptedException {
 		Thread.sleep(5000);
 		String leads=driver.findElement(By.xpath("//h3[contains(text(),'Recent Leads')]")).getText();
 		System.out.println(leads);
+		if (leads.contains("Recent Leads")) {
+			System.out.println("Leads home page is displayed");
+		}
 		System.out.println("Leads home page is displayed");
 		
 		Boolean leadsdropdown=driver.findElement(By.xpath("//select[@id='fcf']")).isDisplayed();

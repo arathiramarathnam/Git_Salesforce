@@ -47,6 +47,7 @@ public class BrowserUtility {
 		public static String newOpportunityACCTName;
 		public static String leadName;
 		public static String Company;
+		public static String invalidViewName;
 		public static String invalidViewUniqueName;
 		public static String newContactLastName;
 		public static String newContactACCTName;
@@ -163,6 +164,7 @@ public class BrowserUtility {
 			newOpportunityACCTName=System.getProperty("opportunityaccountname");
 			leadName=System.getProperty("leadname");
 			Company=System.getProperty("company");
+			invalidViewName=System.getProperty("invalidviewname");
 			invalidViewUniqueName=System.getProperty("invalidviewuniquename");
 			newContactLastName=System.getProperty("contactlastName");
 			newContactACCTName=System.getProperty("contactaccountname");

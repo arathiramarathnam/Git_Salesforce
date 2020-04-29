@@ -24,6 +24,9 @@ static void blockingcalendartime() throws InterruptedException {
 		waitForPageElementToVisible(driver.findElement(By.xpath("//h1[@class='currentStatusUserName']//a")));
 		String currentusername=driver.findElement(By.xpath("//h1[@class='currentStatusUserName']//a")).getText();
 		System.out.println("username edited in contact tab of profile page--->"+currentusername);
+		if (currentusername.contains(userNameNavLabel)) {
+			System.out.println("The calendar for first name and last name is displayed");
+		}
 		
 		String currentdate=driver.findElement(By.xpath("//span[contains(@class,'pageDescription')]//a")).getText();
 		System.out.println("Todaysdate --->"+currentdate);
@@ -32,6 +35,9 @@ static void blockingcalendartime() throws InterruptedException {
 		Thread.sleep(2000);
 		String calendartext=driver.findElement(By.xpath("//h1[contains(@class,'pageType')]")).getText();
 		System.out.println("Calendar for"+userNameNavLabel+ "is displayed" +calendartext);
+		if (calendartext.contains(userNameNavLabel)) {
+			System.out.println("Calendar for"+userNameNavLabel+ "is displayed" +calendartext);
+		}
 		
 		driver.findElement(By.xpath("//a[contains(text(),'4:00 PM')]")).click();
 		Thread.sleep(3000);
@@ -52,8 +58,12 @@ static void blockingcalendartime() throws InterruptedException {
 		System.out.println("Select Subject combobox opens");
 		Thread.sleep(5000);
 		driver.switchTo().window(windowTabs.get(1));
-		System.out.println(driver.getCurrentUrl());
-		System.out.println(driver.findElement(By.xpath("//div[@class='bPageTitle']//div[@class='ptBody secondaryPalette']//h1[@class='pageDescription']")).getText());
+		System.out.println(driver.getCurrentUrl());		
+		String selectcombobox=driver.findElement(By.xpath("//div[@class='bPageTitle']//div[@class='ptBody secondaryPalette']//h1[@class='pageDescription']")).getText();
+		System.out.println(selectcombobox);
+		if (selectcombobox.contains("Select a Subject below.")) {
+			System.out.println("combobox window is displayed");
+		}
 		driver.findElement(By.xpath("//li[@class='listItem4']//a[contains(text(),'Other')]")).click();
 		System.out.println("the parent window is displayed");
 		driver.switchTo().window(windowTabs.get(0));
@@ -61,7 +71,7 @@ static void blockingcalendartime() throws InterruptedException {
 		Thread.sleep(2000);
 		Actions action=new Actions(driver);
 		driver.findElement(By.xpath("//input[@id='StartDateTime_time']")).click();
-		WebElement starttimepicker=driver.findElement(By.id("timePickerItem_40"));
+		WebElement starttimepicker=driver.findElement(By.id("timePickerItem_32"));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView()", starttimepicker);
 		action.moveToElement(starttimepicker).click().build().perform();
 		Thread.sleep(2000);
@@ -82,6 +92,7 @@ static void blockingcalendartime() throws InterruptedException {
 		Thread.sleep(2000);
 		
 		driver.findElement(By.xpath("//input[@id='RecurrenceEndDateOnly']")).click();
+		driver.findElement(By.xpath("//img[contains(@class,'calRight')]")).click();
 		WebElement reccurrenceenddate=driver.findElement(By.xpath("//td[contains(text(),'28')]"));
 		action.moveToElement(reccurrenceenddate).click().build().perform();
 		Thread.sleep(2000);
@@ -94,12 +105,11 @@ static void blockingcalendartime() throws InterruptedException {
 		Thread.sleep(5000);
 		ArrayList<String> windowTabs1 = new ArrayList<String>(driver.getWindowHandles());
 		System.out.println(windowTabs1.size());
-		Thread.sleep(2000);
 		System.out.println(driver.getCurrentUrl());
 		Thread.sleep(2000);
 		driver.switchTo().window(windowTabs1.get(1));
 		System.out.println(driver.getCurrentUrl());
-		
+		Thread.sleep(5000);
 		System.out.println(driver.findElement(By.xpath("//div[@id='summary0']//tr[1]")).getText());
 		System.out.println(driver.findElement(By.xpath("//div[@id='summary0']//tr[2]")).getText());
 		driver.close();

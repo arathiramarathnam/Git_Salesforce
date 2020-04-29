@@ -35,7 +35,7 @@ public class CreateNewOpportunity extends OpportunitiesDropDown{
 		
 		driver.findElement(By.xpath("//div[contains(@class,'pbBody')]//div[3]//table[1]//label[contains(text(),'Account Name')]"));
 		WebElement accountname=driver.findElement(By.xpath("//input[@id='opp4']"));
-		accountname.sendKeys(newAccountName);
+		accountname.sendKeys(newOpportunityACCTName);
 		waitForPageElementToVisible(driver.findElement(By.xpath("//input[@id='opp9']")));
 		
 		driver.findElement(By.xpath("//div[contains(@class,'pbBody')]//div[3]//table[1]//label[contains(text(),'Close Date')]"));
@@ -64,10 +64,13 @@ public class CreateNewOpportunity extends OpportunitiesDropDown{
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView()", save);
 		save.click();
 		Thread.sleep(3000);
+		driver.findElement(By.xpath("//li[@id='Opportunity_Tab']//a[contains(text(),'Opportunities')]")).click();
+		if (driver.findElement(By.xpath("/tr[contains(@class,'dataRow even first')]//th[contains(@class,'')]//a")).getText().contains(newOpportunityName)) {
+			System.out.println(driver.findElement(By.xpath("//tr[contains(@class,'dataRow even first')]//td[1]")).getText());
+			System.out.println("New created opportunity is displayed");
+		}
 		
 		System.out.println("New Opportunity name page is displayed" +newOpportunityName+ "With Opportunity Details");	
-		
-
 	}
 
 	public static void main(String[] args) throws InterruptedException {

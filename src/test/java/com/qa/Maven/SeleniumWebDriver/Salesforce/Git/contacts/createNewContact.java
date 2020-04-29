@@ -28,6 +28,9 @@ static void createnewContact() throws InterruptedException {
 		String contacts=driver.findElement(By.xpath("//h3[contains(text(),'Recent Contacts')]")).getText();
 		System.out.println(contacts);
 		System.out.println("Contacts home page is displayed");
+		if (contacts.contains("Recent Contacts")) {
+			System.out.println("Contacts home page is displayed");
+		}
 		
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//td[@class='pbButton']//input[@name='new']"));
@@ -35,6 +38,9 @@ static void createnewContact() throws InterruptedException {
 		Thread.sleep(4000);
 		String NewContact=driver.findElement(By.xpath("//h2[contains(@class,'pageDescription')]")).getText();
 		System.out.println("New Contact Page is displayed----> "+NewContact);
+		if (NewContact.contains("New Contact")) {
+			System.out.println("New Contact Page is displayed----> "+NewContact);
+		}
 		Thread.sleep(2000);
 }
 

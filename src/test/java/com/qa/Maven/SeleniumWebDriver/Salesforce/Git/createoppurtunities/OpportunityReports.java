@@ -12,6 +12,9 @@ public class OpportunityReports extends CreateNewOpportunity{
 		Thread.sleep(3000);
 		String OpportunityPipeline=driver.findElement(By.xpath("//h1[contains(@class,'noSecondHeader pageType')]")).getText();
 		System.out.println("OpportunityPipeline Report page is displayed----> "+OpportunityPipeline);
+		if (OpportunityPipeline.contains("Opportunity Pipeline")) {
+			System.out.println("OpportunityPipeline Report page is displayed----> "+OpportunityPipeline);
+		}
 		Thread.sleep(2000);
 	}
 		
@@ -25,6 +28,9 @@ public class OpportunityReports extends CreateNewOpportunity{
 		Thread.sleep(3000);
 		String stuckopportunities=driver.findElement(By.xpath("//h1[contains(@class,'noSecondHeader pageType')]")).getText();
 		System.out.println("stuck opportunities Report page is displayed----> "+stuckopportunities);
+		if (stuckopportunities.contains("Stuck Opportunities")) {
+			System.out.println("stuck opportunities Report page is displayed----> "+stuckopportunities);
+		}
 		Thread.sleep(2000);
 		
 	}
@@ -55,6 +61,9 @@ static void quarterlySummary() throws InterruptedException {
 		Thread.sleep(3000);
 		String opportunityreport=driver.findElement(By.xpath("//h1[contains(@class,'noSecondHeader pageType')]")).getText();
 		System.out.println("opportunity report page with summary is displayed----> "+opportunityreport);
+		if (opportunityreport.contains("Opportunity Report")) {
+			System.out.println("opportunity report page with summary is displayed----> "+opportunityreport);
+		}
 		Thread.sleep(2000);
 	}
 	
@@ -84,6 +93,7 @@ static void quarterlySummary() throws InterruptedException {
 		stuckopportunities();
 		quarterlySummary(); 
 		closedOpportunities();
+		quitBrowser();
 	}
 
 }

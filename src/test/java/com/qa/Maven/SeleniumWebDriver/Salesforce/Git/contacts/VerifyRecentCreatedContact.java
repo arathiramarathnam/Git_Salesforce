@@ -33,7 +33,7 @@ public class VerifyRecentCreatedContact extends createNewContact{
 		Thread.sleep(3000);
 		Actions action=new Actions(driver);
 		
-		WebElement contactlink=driver.findElement(By.xpath("//tr[contains(@class,'dataRow even first')]//a[contains(text(),'R')]"));
+		WebElement contactlink=driver.findElement(By.xpath("//tr[contains(@class,'dataRow even first')]//a"));
 		waitForPageElementToVisible(contactlink);
 		action.click(contactlink).build().perform();
 		Thread.sleep(4000);

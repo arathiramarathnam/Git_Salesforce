@@ -27,13 +27,16 @@ public class OpportunitiesDropDown extends BrowserUtility{
 		Thread.sleep(4000);
 		String opportunities=driver.findElement(By.xpath("//h3[contains(text(),'Recent Opportunities')]")).getText();
 		System.out.println(opportunities);
+		if (opportunities.contains("Recent Opportunities")) {
+			System.out.println("Opportunities home page is displayed");
+		}
 		System.out.println("Opportunities home page is displayed");
 		
 		Boolean opportunitiesdropdown=driver.findElement(By.xpath("//select[@id='fcf']")).isDisplayed();
 		if (opportunitiesdropdown=true) {
 		System.out.println("Opportunties dropdown is available");	
 		}
-		/*WebElement viewOpportunities=driver.findElement(By.xpath("//select[@id='fcf']//option"));
+		/*WebElement viewOpportunities=driver.findElement(By.xpath("//select[@id='fcf']//option[contains(text(),'Opportunities')]"));
 		if (viewOpportunities.getText().contains("My Opportunities")) {
 			System.out.println("Opportunities dropdown is available");
 		}*/

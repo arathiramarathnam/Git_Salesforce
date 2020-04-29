@@ -18,10 +18,16 @@ public class NewLead extends Leads{
 		Thread.sleep(4000);
 		String newLead=driver.findElement(By.xpath("//h2[contains(@class,'pageDescription')]")).getText();
 		System.out.println("New Lead Page is displayed----> "+newLead);
+		if (newLead.contains("New Lead")) {
+			System.out.println("New Lead Page is displayed----> "+newLead);
+		}
 		
 		driver.findElement(By.xpath("//div[contains(@class,'pbHeader')]//td[contains(@class,'pbTitle')]//h2[contains(@class,'mainTitle')]"));
 		String leadedit=driver.findElement(By.xpath("//div[contains(@class,'pbHeader')]//td[contains(@class,'pbTitle')]//h2[contains(@class,'mainTitle')]")).getText();
 		System.out.println("Lead Edit page---->"+leadedit);
+		if (leadedit.contains("Lead Edit")) {
+			System.out.println("Lead Edit page---->"+leadedit);
+		}
 		
 		System.out.println("Lead Information:");
 		driver.findElement(By.xpath("//div[@id='head_1_ep']//h3[contains(text(),'Lead Information')]"));
@@ -59,7 +65,7 @@ public class NewLead extends Leads{
 		newlead(); 
 		Thread.sleep(2000);
 		
-//		quitBrowser();
+		quitBrowser();
 
 	}
 

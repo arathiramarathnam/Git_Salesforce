@@ -160,7 +160,6 @@ static void verfiyfileupload() throws InterruptedException {
 	
 	static void uploadPhotoiframe() throws InterruptedException {
 		
-		
 		WebElement photoframe=driver.findElement(By.id("uploadPhotoContentId")); 
 		driver.switchTo().frame(photoframe);
 		Thread.sleep(3000);

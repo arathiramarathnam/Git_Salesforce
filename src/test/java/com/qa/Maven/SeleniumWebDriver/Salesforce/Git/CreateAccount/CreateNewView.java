@@ -58,7 +58,7 @@ public class CreateNewView extends CreateAccounts{
 		verifyAccountsPage();
 		createNewView();
 		Thread.sleep(3000);
-//		quitBrowser();
+		quitBrowser();
 		
 
 	}

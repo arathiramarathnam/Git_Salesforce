@@ -3,7 +3,9 @@ package com.qa.Maven.SeleniumWebDriver.Salesforce.Git.CreateAccount;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 public class CreateAccountReport extends CreateNewView{
@@ -23,11 +25,11 @@ public class CreateAccountReport extends CreateNewView{
 		driver.findElement(By.id("ext-comp-1056"));
 		WebElement fromdate=driver.findElement(By.id("ext-comp-1042"));
 		fromdate.clear();
-		fromdate.sendKeys(from);
-/*		driver.findElement(By.id("ext-gen152")).click();
+//		fromdate.sendKeys(from);
+		driver.findElement(By.id("ext-gen152")).click();
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//td[@class='x-date-active x-date-today x-date-selected']//span[contains(text(),'26')]")).click();
-		Thread.sleep(2000);*/
+		driver.findElement(By.xpath("//td[@class='x-date-active x-date-today x-date-selected']//span[contains(text(),'27')]")).click();
+		Thread.sleep(2000);
 		driver.findElement(By.id("ext-comp-1057"));
 		WebElement todate=driver.findElement(By.id("ext-comp-1045"));
 		todate.clear();
@@ -39,10 +41,10 @@ public class CreateAccountReport extends CreateNewView{
 		driver.findElement(By.id("ext-gen288")).click();
 		driver.findElement(By.xpath("//table[@id='ext-gen271']//td[@class='x-date-active x-date-today x-date-selected']//a[@class='x-date-date']")).click();*/
 		Thread.sleep(2000);
-		WebElement datefield=driver.findElement(By.xpath("//input[@id='ext-gen20']"));
-		waitForPageElementToVisible(datefield);
-		WebElement option=driver.findElement(By.xpath("//div[@class='x-combo-list-item x-combo-selected']//div[contains(text(),'Created Date')]"));
-		driver.findElement(By.xpath("//div[@class='x-combo-list-item x-combo-selected']//div[contains(text(),'Created Date')]")).click();
+		Actions action=new Actions(driver);
+		driver.findElement(By.xpath("//input[@id='ext-gen20']")).click();
+		WebElement datefield=driver.findElement(By.xpath("//div[@class='x-combo-list-item x-combo-selected']"));
+		action.moveToElement(datefield).click().build().perform();
 		
 		Thread.sleep(2000);
 		
