@@ -52,6 +52,8 @@ public class BrowserUtility {
 		public static String newContactLastName;
 		public static String newContactACCTName;
 		public static String editProfileLastName;
+		public static String ReportName;
+		public static String ReportUniqueName;
 		
 		public static void launchBrowser(String sBrowser){
 			
@@ -169,6 +171,10 @@ public class BrowserUtility {
 			newContactLastName=System.getProperty("contactlastName");
 			newContactACCTName=System.getProperty("contactaccountname");
 			editProfileLastName=System.getProperty("editlastName");
+			ReportName=System.getProperty("reportname");
+			ReportUniqueName=System.getProperty("reportuniquename");
+			
+			
 			}catch(Exception a) {
 				System.out.println(a);
 			}
