@@ -71,45 +71,48 @@ static void blockingcalendartime() throws InterruptedException {
 		Thread.sleep(2000);
 		Actions action=new Actions(driver);
 		driver.findElement(By.xpath("//input[@id='StartDateTime_time']")).click();
+		Thread.sleep(1000);
+		waitForPageElementToVisible(driver.findElement(By.id("timePickerItem_32")));
 		WebElement starttimepicker=driver.findElement(By.id("timePickerItem_32"));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView()", starttimepicker);
-		action.moveToElement(starttimepicker).click().build().perform();
+		action.moveToElement(starttimepicker).click().perform();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//input[@id='EndDateTime_time']")).click();
 		WebElement endtimepicker=driver.findElement(By.id("timePickerItem_38"));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView()", endtimepicker);
-		action.moveToElement(endtimepicker).click().build().perform();
+		action.moveToElement(endtimepicker).click().perform();
 		Thread.sleep(2000);
 		
 		driver.findElement(By.xpath("//input[@id='EndDateTime']")).click();
-		WebElement enddate=driver.findElement(By.xpath("//td[contains(text(),'28')]"));
-		action.moveToElement(enddate).click().build().perform();
-		Thread.sleep(2000);
+		driver.findElement(By.xpath("//img[@class='calRight']")).click();
+		WebElement enddate=driver.findElement(By.xpath("//td[contains(text(),'29')]"));
+		enddate.click();
+		Thread.sleep(3000);
 		
-		driver.findElement(By.xpath("//input[@id='IsRecurrence']")).click();
+		driver.findElement(By.xpath("//tr[@class='detailRow']//td//input[@id='IsRecurrence']")).click();
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//input[@id='rectypeftw']")).click();
+		driver.findElement(By.xpath("//table[@class='recurrenceTable']//tbody//tr//td[1]//input[@id='rectypeftw']")).click();
 		Thread.sleep(2000);
 		
 		driver.findElement(By.xpath("//input[@id='RecurrenceEndDateOnly']")).click();
-		driver.findElement(By.xpath("//img[contains(@class,'calRight')]")).click();
-		WebElement reccurrenceenddate=driver.findElement(By.xpath("//td[contains(text(),'28')]"));
-		action.moveToElement(reccurrenceenddate).click().build().perform();
+		driver.findElement(By.xpath("//img[@class='calRight']")).click();
+		Thread.sleep(1000);
+		WebElement reccurrenceenddate=driver.findElement(By.xpath("//tr[@id='calRow3']//td[contains(text(),'14')]"));
+		reccurrenceenddate.click();
 		Thread.sleep(2000);
 		
-	
 		WebElement eleSave=driver.findElement(By.xpath("//td[@id='bottomButtonRow']//input[contains(@name,'save')]"));
 		
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView()", eleSave);
 		driver.findElement(By.xpath("//td[@id='bottomButtonRow']//input[contains(@name,'save')]")).click();
-		Thread.sleep(5000);
+		Thread.sleep(4000);
 		ArrayList<String> windowTabs1 = new ArrayList<String>(driver.getWindowHandles());
 		System.out.println(windowTabs1.size());
+		Thread.sleep(3000);
 		System.out.println(driver.getCurrentUrl());
-		Thread.sleep(2000);
 		driver.switchTo().window(windowTabs1.get(1));
-		System.out.println(driver.getCurrentUrl());
 		Thread.sleep(5000);
+		System.out.println(driver.getCurrentUrl());
 		System.out.println(driver.findElement(By.xpath("//div[@id='summary0']//tr[1]")).getText());
 		System.out.println(driver.findElement(By.xpath("//div[@id='summary0']//tr[2]")).getText());
 		driver.close();
